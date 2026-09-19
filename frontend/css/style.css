@@ -1,0 +1,13 @@
+body {
+background-image: url(../image/6080984.jpg );
+background-repeat: no-repeat; 
+
+    /* 3. Centra la imagen en la pantalla */
+    background-position: center center; 
+
+    /* 4. Hace que la imagen cubra todo el fondo sin perder su proporción */
+    background-size: cover; 
+
+    /* 5. Fija la imagen para que no se mueva al hacer scroll (opcional) */
+    background-attachment: fixed;
+}
