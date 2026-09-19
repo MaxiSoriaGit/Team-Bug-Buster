@@ -4,12 +4,12 @@ const verPassword = document.querySelector("#togglePassword");
 verPassword.addEventListener("click", () => {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    verPassword.classList.remove("bi-eye");
-    verPassword.classList.add("bi-eye-slash");
-  } else {
-    passwordInput.type = "password";
     verPassword.classList.remove("bi-eye-slash");
     verPassword.classList.add("bi-eye");
+  } else {
+    passwordInput.type = "password";
+    verPassword.classList.remove("bi-eye");
+    verPassword.classList.add("bi-eye-slash");
   }
 });
 const passwordContainer = document.querySelector("#confirmContainer");
