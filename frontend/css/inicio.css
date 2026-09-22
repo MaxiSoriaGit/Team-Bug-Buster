@@ -1,0 +1,13 @@
+.barra {
+    height: 70px;
+
+    /* Degradado */
+    background: linear-gradient(
+        90deg,
+        #173b78 0%,
+        #185dc4 55%,
+        #218fa4 100%
+    );
+}
+
+

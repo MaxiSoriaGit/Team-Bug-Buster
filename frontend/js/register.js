@@ -13,11 +13,11 @@ verPassword.addEventListener("click", () => {
   }
 });
 const passwordContainer = document.querySelector("#confirmContainer");
-const confirmPasswordInput = document.querySelector("#ConfirmPassword");
+const confirmPasswordInput = document.querySelector("#confirmPassword");
 passwordInput.addEventListener("input", () => {
   if (passwordInput.value.length > 0) {
     passwordContainer.classList.remove("d-none");
-    confirmPasswordInput.classList.setAttribute("required", "true");
+    confirmPasswordInput.setAttribute("required", "true");
   } else {
     passwordContainer.classList.add("d-none");
     confirmPasswordInput.removeAttribute("required");
