@@ -3,6 +3,8 @@ import { Sequelize } from "sequelize";
 import "dotenv/config";
 import { sequelize } from "./src/config/database.js";
 import { conexionBaseDatos } from "./src/config/database.js";
+import { UserModel } from "./src/models/user.model.js";
+import { ProfileModel } from "./src/models/profile.model.js";
 console.log("Puerto configurado:", process.env.PORT);
 console.log("Base de datos:", process.env.DB_NAME);
 console.log("Usuario de DB:", process.env.DB_USER);
