@@ -1,20 +1,23 @@
 import { Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize("hackanton", "root", "", {
-  host: "localhost",
-  dialect: "mysql",
-  timezone: "-03:00",
-  dialectOptions: {
-    timezone: "local",
-    dateStrings: true,
+export const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    host: process.env.DB_HOST,
+    dialect: "mysql",
   },
-});
-export const conexionBaseDatos = async () => {
+);
+
+export const startDB = async () => {
   try {
-    await sequelize.sync({ force: true });
-    console.log("Conexion de la base de datos con exitos");
+    await sequelize.authenticate();
+    await sequelize.sync({
+      // force: true
+    });
+    console.log(`Conexion a la BD establecida`);
   } catch (error) {
-    console.log("Error al conectar con la base de datos", error);
+    console.error(`No se pudo conecta con la BD. Error: ${error}`);
   }
 };
-conexionBaseDatos();

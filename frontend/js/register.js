@@ -23,3 +23,38 @@ passwordInput.addEventListener("input", () => {
     confirmPasswordInput.removeAttribute("required");
   }
 });
+//aqui
+document
+  .getElementById("formRegistro")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      first_name: document.getElementById("first_name").value,
+      last_name: document.getElementById("last_name").value,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message || "¡Registro exitoso!");
+        window.location.href = "login.html";
+      } else {
+        alert(`Error: ${data.message || "No se pudo registrar"}`);
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+  });
