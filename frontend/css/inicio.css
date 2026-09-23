@@ -10,7 +10,9 @@
     );
 }
 
-/* Hero section: reutiliza el mismo degradado que la barra */
+/* Hero section: reutiliza el mismo degradado que la barra.
+   El gradiente queda fijo tanto en modo claro como oscuro,
+   por eso el texto siempre es blanco (no depende de data-bs-theme). */
 .hero-section {
     min-height: 60vh;
     background: linear-gradient(
@@ -19,4 +21,5 @@
         #185dc4 55%,
         #218fa4 100%
     );
+    color: #fff;
 }
