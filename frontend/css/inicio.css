@@ -10,4 +10,13 @@
     );
 }
 
-
+/* Hero section: reutiliza el mismo degradado que la barra */
+.hero-section {
+    min-height: 60vh;
+    background: linear-gradient(
+        135deg,
+        #173b78 0%,
+        #185dc4 55%,
+        #218fa4 100%
+    );
+}
