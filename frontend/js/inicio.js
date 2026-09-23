@@ -6,6 +6,23 @@ const navLogout = document.querySelector("#navLogout");
 const nombreUsuario = document.querySelector("#nombreUsuario");
 const btnLogout = document.querySelector("#btnLogout");
 
+// ---- Modo oscuro / claro ----
+const html = document.documentElement;
+const btnTema = document.querySelector("#btnTema");
+const iconoTema = document.querySelector("#iconoTema");
+
+function aplicarTema(tema) {
+  html.setAttribute("data-bs-theme", tema);
+  iconoTema.classList.remove("bi-moon-stars", "bi-sun");
+  iconoTema.classList.add(tema === "dark" ? "bi-sun" : "bi-moon-stars");
+  localStorage.setItem("tema", tema);
+}
+
+btnTema.addEventListener("click", () => {
+  const temaActual = html.getAttribute("data-bs-theme");
+  aplicarTema(temaActual === "dark" ? "light" : "dark");
+});
+
 // ---- Toast reutilizable ----
 function mostrarToast(mensaje, tipo = "primary") {
   const toastEl = document.querySelector("#toastGeneral");
@@ -49,6 +66,9 @@ btnLogout.addEventListener("click", () => {
 
 // ---- Al cargar la página ----
 document.addEventListener("DOMContentLoaded", () => {
+  const temaGuardado = localStorage.getItem("tema") || "light";
+  aplicarTema(temaGuardado);
+
   chequearSesion();
 
   // Si venís de un login/registro exitoso, podés mandar un mensaje por
